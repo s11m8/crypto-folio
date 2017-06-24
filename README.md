@@ -1,5 +1,7 @@
 ## crypto-folio
 
+<img src="/public/images/landing.png" width="360">
+
 1. Install Meteor.js 
 [www.meteor.com/install](https://www.meteor.com/install)
 
