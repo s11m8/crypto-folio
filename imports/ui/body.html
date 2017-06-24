@@ -1,0 +1,61 @@
+<body>
+
+
+  <div class="container">
+
+    <header>
+      <p style="font-size:14px;">{{> loginButtons}}</p>
+      <!-- User is logged in -->
+      {{#if currentUser}}
+      <form id="addCurrency">
+        <div>
+          <input type="text" style="margin-bottom:10px;" name="amount" placeholder="Amount">
+          <select style="width:200px;max-width:40%" id="js-example-basic-multiple" name="currency">
+      						{{#each getCoinMarketCapTicker }}
+      						    <option value="{{id}}">{{id}} ({{rank}})</option>
+      				    {{/each}}
+      				</select>
+          <input type="submit" class="btn btn-primary btn-s" Value="Add currency" />
+        </div>
+      </form>
+      <p style="margin-top:30px;">Portfolio Balance : {{getSum}} USD</p>
+
+      <div style="width:100%;max-width:500px">{{> c3 myChartData}}</div>
+
+      {{#each getCurrency }}
+      <form class="changeAmount">
+        <div style="margin:5px;">
+          <input type="submit" class="btn btn-danger btn-xs" Value="-" />
+          <div style="margin-top:5px;float:left;width:200px;max-width:30%;border-bottom:1px solid gray;">{{currency}}</div>
+          <input style="width:150px;max-width:30%;" type="text" name="amount" value="{{amount}}"> {{getValue currency amount}} USD
+        </div>
+      </form>
+      {{/each}} {{else}}
+
+      <div style="width:100%;max-width:450px;">
+        <h3>>> CryptoFolio</h3>
+        <h4>Create & manage your account</h4>
+
+        <p>The easiest way to manage Crypto Currencies</p>
+
+        <img src="images/landing.png" style="width:100%;max-width:450px;border:3px solid gray; padding:10px;" />
+      </div>
+      {{/if}}
+    </header>
+
+
+    <!--  <ul>
+      {{#each tasks '1' }}
+        {{> task}}
+      {{/each}}
+    </ul> -->
+
+
+  </div>
+</body>
+
+
+<!-- <template name="myAudio">
+  <button type="button" id="myaudiobtn">Play</button>
+  <audio src="/sounds/ding.wav"></audio>
+</template> -->
